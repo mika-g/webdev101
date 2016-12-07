@@ -2,10 +2,10 @@
 
 * {
 	box-sizing: border-box;
+  font-family: Arial;
 }
 
 h1 {
-	font-family: Arial;
 	color: blue;
 	text-align: center;
   font-size: 175%;
@@ -20,66 +20,47 @@ p {
 	margin: 0;
 }
 
-.container {
-	border: none;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	padding: 10px;
-}
-
 section {
 	border:	1px solid black;
 	background-color: #D0D3D4;
 	width: 100%;
-	height: 200px;
-	font-family: Helvetica;
-	color: black;
+	color: blue;
 	position: relative;
 	overflow: auto;
 }
 
-#set1 {
-	border-bottom: 1px solid black;
+section h2 {
+  border-bottom: 1px solid black;
   border-left: 1px solid black;
-	text-align: center;
-  width: 35%;
+  text-align: center;
   margin: 0 0 0 65%;
-	padding: 5px;
-	background-color: #3498DB;
-  font-family: Arial;
-  font-weight: bold;
   font-size: 125%;
+  width: 35%;
+  padding: 5px;
+}
+
+#set1 h2 {
+  background-color: #3498DB;
   color: white;
 }
 
-#set2 {
-	border-bottom: 1px solid black;
-  border-left: 1px solid black;
-	text-align: center;
-	width: 35%;
-	margin: 0 0 0 65%;
-	padding: 5px;
-	background-color: #8E44AD;
-  font-family: Arial;
-  font-weight: bold;
-  font-size: 125%;
+#set2 h2 {
+  background-color: #8E44AD;
   color: white;
 }
 
-#set3 {
-	border-bottom: 1px solid black;
-  border-left: 1px solid black;
-	text-align: center;
-  width: 35%;
-  margin: 0 0 0 65%;
-	background-color: #27AE60;
-	padding: 5px;
-  font-family: Arial;
-  font-weight: bold;
-  font-size: 125%;
+#set3 h2 {
+  background-color: #27AE60;
   color: white;
+}
+
+.container {
+  border: none;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .row {width: 100%;}
