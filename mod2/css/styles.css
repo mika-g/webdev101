@@ -41,12 +41,11 @@ section {
 }
 
 #set1 {
-	border: 1px solid black;
+	border-bottom: 1px solid black;
+  border-left: 1px solid black;
 	text-align: center;
-	width: 30%;
-	margin-left: 70%;
-	margin-bottom: 0;
-	margin-top: 0;
+  width: 35%;
+  margin: 0 0 0 65%;
 	padding: 5px;
 	background-color: #3498DB;
   font-family: Arial;
@@ -56,12 +55,11 @@ section {
 }
 
 #set2 {
-	border: 1px solid black;
+	border-bottom: 1px solid black;
+  border-left: 1px solid black;
 	text-align: center;
-	width: 30%;
-	margin-left: 70%;
-	margin-bottom: 0;
-	margin-top: 0;
+	width: 35%;
+	margin: 0 0 0 65%;
 	padding: 5px;
 	background-color: #8E44AD;
   font-family: Arial;
@@ -71,12 +69,11 @@ section {
 }
 
 #set3 {
-	border: 1px solid black;
+	border-bottom: 1px solid black;
+  border-left: 1px solid black;
 	text-align: center;
-	width: 30%;
-	margin-left: 70%;
-	margin-bottom: 0;
-	margin-top: 0;
+  width: 35%;
+  margin: 0 0 0 65%;
 	background-color: #27AE60;
 	padding: 5px;
   font-family: Arial;
