@@ -1,2 +1,2 @@
 # webdev101
-Solutions to the coursera course HTML, CSS, and Javascript for Web Developers.
+My solutions to the coursera course HTML, CSS, and Javascript for Web Developers by John Hopkins University.
