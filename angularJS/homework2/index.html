@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="ShoppingListCheckOff">
+<html lang="en">
   <head>
     <title>Shopping List Check Off</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,42 +21,35 @@
         color: green;
       }
     </style>
-    <script src="angular.min.js"></script>
-    <script src="app.js"></script>
+      <script src="angular.min.js"></script>
+      <script src="app.js"></script>
   </head>
-<body>
+<body ng-app="ShoppingListCheckOff" ng-cloak>
   <div class="container">
   <h1>Shopping List Check Off</h1>
 
   <div class="row">
 
     <!-- To Buy List -->
-    <div class="col-md-6">
-    <div ng-controller="ToBuyShoppingController as Buy">
+    <div class="col-md-6" ng-controller="ToBuyShoppingController as toBuyCtrl">
      <h2>To Buy:</h2>
      <ul>
-
-       <li ng-repeat="item in Buy.list">
-         Buy {{item.quantity|number}} {{item.name}}
-         <button class="btn btn-default"  ng-click="Buy.item($index)"><span class="glyphicon glyphicon-ok"></span>Bought</button>
-       </li>
-
-      </ul>
-      <div class="emptyMessage" ng-if="Buy.list.length === 0">Everything is bought!</div>
-    </div>
+       <li ng-repeat="item in toBuyCtrl.itemsList">Buy <strong>{{item.name}}</strong>, quantity: <em>{{item.quantity}}</em>
+           <button class="btn btn-default" ng-click="toBuyCtrl.checkOffItem($index)">
+               <span class="glyphicon glyphicon-ok"></span> Bought</button></li>
+     </ul>
+     <div class="emptyMessage" ng-if="!toBuyCtrl.itemsList.length">Everything is bought!</div>
     </div>
 
     <!-- Already Bought List -->
-    <div class="col-md-6">
-    <div ng-controller="AlreadyBoughtShoppingController as Bought">
+    <div class="col-md-6" ng-controller="AlreadyBoughtShoppingController as boughtCtrl">
      <h2>Already Bought:</h2>
      <ul>
-       <li ng-repeat="item in Bought.list">
-         Bought {{item.quantity|number}} {{item.name}}
-       </li>
+         <li ng-repeat="item in boughtCtrl.itemsList">Buy <strong>{{item.name}}</strong>, quantity: <em>{{item.quantity}}</em>
+             <button class="btn btn-default" ng-click="boughtCtrl.cancelCheckOff($index)">
+                 <span class="glyphicon glyphicon-remove text-danger"></span> Cancel</button></li>
      </ul>
-     <div class="emptyMessage" ng-if="Bought.list.length === 0">Nothing bought yet.</div>
-    </div>
+     <div class="emptyMessage" ng-if="!boughtCtrl.itemsList.length">Nothing bought yet.</div>
     </div>
   </div>
 </div>
