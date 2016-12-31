@@ -36,13 +36,13 @@
      <h2>To Buy:</h2>
      <ul>
 
-       <li ng-repeat="item in shoppingitems.list">
+       <li ng-repeat="item in shopping.list">
          Buy {{item.quantity|number}} {{item.name}}
-         <button class="btn btn-default"  ng-click="shoppingitems.item($index)"><span class="glyphicon glyphicon-ok"></span>Bought</button>
+         <button class="btn btn-default"  ng-click="shopping.item($index)"><span class="glyphicon glyphicon-ok"></span>Bought</button>
        </li>
 
       </ul>
-      <div class="emptyMessage" ng-if="shoppingitems.list.length === 0">Everything is bought!</div>
+      <div class="emptyMessage" ng-if="shopping.list.length === 0">Everything is bought!</div>
     </div>
     </div>
 
@@ -51,11 +51,11 @@
     <div ng-controller="AlreadyBoughtShoppingController as bought">
      <h2>Already Bought:</h2>
      <ul>
-       <li ng-repeat="item in boughtitems.list">
+       <li ng-repeat="item in bought.list">
          Bought {{item.quantity|number}} {{item.name}}
        </li>
      </ul>
-     <div class="emptyMessage" ng-if="boughtitems.list.length === 0">Nothing bought yet.</div>
+     <div class="emptyMessage" ng-if="bought.list.length === 0">Nothing bought yet.</div>
     </div>
     </div>
   </div>
