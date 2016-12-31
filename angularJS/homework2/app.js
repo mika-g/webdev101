@@ -36,7 +36,7 @@
       {name: "Orange Juice", quantity: 1}
     ];
 
-    this.getShoppingList = function() {
+    service.getShoppingList = function() {
       return shopping_list;
     };
 
