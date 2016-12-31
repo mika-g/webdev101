@@ -1,54 +1,54 @@
-
-(function() {
+(function () {
   'use strict';
-  angular
-    .module('ShoppingListCheckOff', [])
-    .controller('ToBuyShoppingController', ToBuyShoppingController)
-    .controller('AlreadyBoughtShoppingController', AlreadyBoughtShoppingController)
-    .service('ShoppingListCheckOffService', ShoppingListCheckOffService);
+  angular.module('ShoppingListCheckOff', [])
+  .controller('ToBuyShoppingController', ToBuyShoppingController)
+  .controller('AlreadyBoughtShoppingController', AlreadyBoughtShoppingController)
+  .service('ShoppingListCheckOffService',ShoppingListCheckOffService);
 
   ToBuyShoppingController.$inject = ['ShoppingListCheckOffService'];
+  AlreadyBoughtShoppingController.$inject = ['ShoppingListCheckOffService'];
+
   function ToBuyShoppingController(ShoppingListCheckOffService) {
-    var controller = this;
-
-    controller.toBuyItems = ShoppingListCheckOffService.getToBuyItems();
-
-    controller.doBuy = function(index) {
-      ShoppingListCheckOffService.doBuy(index);
-    }
+    var Purchase = this;
+    Purchase.list = ShoppingListCheckOffService.getShoppingList();
+    Purchase.item = function(itemIndex) {
+      try {
+        ShoppingListCheckOffService.purchaseItem(itemIndex);
+      } catch (err) {
+        alert(err);
+      }
+    };
   }
 
-  AlreadyBoughtShoppingController.$inject = ['ShoppingListCheckOffService'];
+
   function AlreadyBoughtShoppingController(ShoppingListCheckOffService) {
-    var controller = this;
-
-    controller.boughtItems = ShoppingListCheckOffService.getBoughtItems();
-
+    var Sold = this;
+    Sold.list = ShoppingListCheckOffService.getSoldList();
   }
 
   function ShoppingListCheckOffService() {
     var service = this;
+    var sold_list = [];
+    var shopping_list = [
+      {name: "Apples", quantity: 2},
+      {name: "Oranges", quantity: 3},
+      {name: "Pears", quantity: 4},
+      {name: "Grapefruits", quantity: 5},
+      {name: "Bananas", quantity: 6}
+    ];
 
-    var toBuyItems = [{ name: "cookies", quantity: 10 },
-      { name: "milk", quantity: 10 },
-      { name: "tea", quantity: 10 },
-      { name: "coffee", quantity: 10 },
-      { name: "sugar", quantity: 10 }]
-    var boughtItems = [];
+    service.getShoppingList = function() {
+      return shopping_list;
+    };
 
-    this.doBuy = function (index) {
-      boughtItems.push(toBuyItems[index]);
-      toBuyItems.splice(index, 1);
-    }
+    service.getSoldList = function() {
+      return sold_list;
+    };
 
-    this.getToBuyItems = function() {
-      return toBuyItems;
-    }
-
-    this.getBoughtItems = function() {
-      return boughtItems;
-    }
+    service.purchaseItem = function(itemIndex) {
+      var item = shopping_list.splice(itemIndex, 1);
+      sold_list.push(item[0]);
+    };
   }
 
-}
-)();
+})();
