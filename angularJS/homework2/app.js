@@ -12,11 +12,7 @@
     var shopping = this;
     shopping.list = ShoppingListCheckOffService.getShoppingList();
     shopping.item = function(itemIndex) {
-      try {
-        ShoppingListCheckOffService.shoppingItem(itemIndex);
-      } catch (err) {
-        alert(err);
-      }
+
     };
   }
 
