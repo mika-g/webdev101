@@ -13,7 +13,7 @@
     this.list = ShoppingListCheckOffService.getShoppingList();
     this.item = function(itemIndex) {
       try {
-        ShoppingListCheckOffService.purchaseItem(itemIndex);
+        ShoppingListCheckOffService.buyItem(itemIndex);
       } catch (err) {
         alert(err);
       }
@@ -23,7 +23,7 @@
 
   function AlreadyBoughtShoppingController(ShoppingListCheckOffService) {
     var Bought = this;
-    this.list = ShoppingListCheckOffService.getSoldList();
+    this.list = ShoppingListCheckOffService.getBoughtList();
   }
 
   function ShoppingListCheckOffService() {
@@ -41,11 +41,11 @@
       return shopping_list;
     };
 
-    service.getSoldList = function() {
+    service.getBoughtList = function() {
       return sold_list;
     };
 
-    service.purchaseItem = function(itemIndex) {
+    service.buyItem = function(itemIndex) {
       var item = shopping_list.splice(itemIndex, 1);
       sold_list.push(item[0]);
     };
